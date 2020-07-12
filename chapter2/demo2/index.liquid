@@ -1,0 +1,22 @@
+<h2>Liquid Demo</h2>
+
+{% assign name = "ray" %}
+
+<p>
+Hello, {{ name }}!
+</p>
+
+{% assign cool = true %}
+
+{% if cool %}
+<p>
+Yes, you are cool.
+</p>
+{% endif %}
+
+{% assign cats = "Fluffy,Muffy,Duffy" | split: ',' %}
+<ul>
+{% for cat in cats %}
+	<li>{{ cat }}</li>
+{% endfor %}
+</ul>
