@@ -1,0 +1,12 @@
+---
+layout: main
+title: Home Page
+---
+
+Welcome to our home page. Here's our press releases:
+
+<ul>
+{% for pr in collections.pressReleases %}
+<li><a href="{{ pr.url }}">{{ pr.data.title }}</a></li>
+{% endfor %}
+</ul>
