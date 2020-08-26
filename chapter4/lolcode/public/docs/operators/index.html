@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Calling Syntax and Precedence #  Mathematical operators and functions in general rely on prefix notation. By doing this, it is possible to call and compose operations with a minimum of explicit grouping. When all operators and functions have known arity, no grouping markers are necessary. In cases where operators have variable arity, the operation is closed with MKAY. An MKAY may be omitted if it coincides with the end of the line/statement, in which case the EOL stands in for as many MKAYs as there are open variadic functions.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Operators" />
+<meta property="og:description" content="Calling Syntax and Precedence #  Mathematical operators and functions in general rely on prefix notation. By doing this, it is possible to call and compose operations with a minimum of explicit grouping. When all operators and functions have known arity, no grouping markers are necessary. In cases where operators have variable arity, the operation is closed with MKAY. An MKAY may be omitted if it coincides with the end of the line/statement, in which case the EOL stands in for as many MKAYs as there are open variadic functions." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/operators/" />
+
+<title>Operators | LOLCODE Documentation</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/en.search.min.fb9079ec40a1cde7ba12ae4b349f48a0fea6254af5f475135b79e52d6384ef28.js" integrity="sha256-&#43;5B57EChzee6Eq5LNJ9IoP6mJUr19HUTW3nlLWOE7yg="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>LOLCODE Documentation</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/formatting/" class="">Formatting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/comments/" class="">Comments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/file-creation/" class="">File Creation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/variable-types/" class="">Variable Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/variables/" class="">Variables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/operators/" class="active">Operators</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/input-output/" class="">Input/Output</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/statements/" class="">Statements</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/flow-control/" class="">Flow Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Operators</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#calling-syntax-and-precedence">Calling Syntax and Precedence</a></li>
+        <li><a href="#math">Math</a></li>
+        <li><a href="#boolean">Boolean</a></li>
+        <li><a href="#comparison">Comparison</a></li>
+        <li><a href="#concatenation">Concatenation</a></li>
+        <li><a href="#casting">Casting</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h3 id="calling-syntax-and-precedence">
+  Calling Syntax and Precedence
+  <a class="anchor" href="#calling-syntax-and-precedence">#</a>
+</h3>
+<p>Mathematical operators and functions in general rely on prefix notation. By doing this, it is possible to call and compose operations with a minimum of explicit grouping. When all operators and functions have known arity, no grouping markers are necessary. In cases where operators have variable arity, the operation is closed with <code>MKAY</code>. An <code>MKAY</code> may be omitted if it coincides with the end of the line/statement, in which case the EOL stands in for as many <code>MKAYs</code> as there are open variadic functions.</p>
+<p>Calling unary operators then has the following syntax:</p>
+<pre><code>&lt;operator&gt; &lt;expression1&gt;
+</code></pre><p>The <code>AN</code> keyword can optionally be used to separate arguments, so a binary operator expression has the following syntax:</p>
+<pre><code>&lt;operator&gt; &lt;expression1&gt; [AN] &lt;expression2&gt;
+</code></pre><p>An expression containing an operator with infinite arity can then be expressed with the following syntax:</p>
+<pre><code>&lt;operator&gt; &lt;expr1&gt; [[[AN] &lt;expr2&gt;] [AN] &lt;expr3&gt; ...] MKAY
+</code></pre><h3 id="math">
+  Math
+  <a class="anchor" href="#math">#</a>
+</h3>
+<p>The basic math operators are binary prefix operators.</p>
+<pre><code>SUM OF &lt;x&gt; AN &lt;y&gt;       BTW +
+DIFF OF &lt;x&gt; AN &lt;y&gt;      BTW -
+PRODUKT OF &lt;x&gt; AN &lt;y&gt;   BTW *
+QUOSHUNT OF &lt;x&gt; AN &lt;y&gt;  BTW /
+MOD OF &lt;x&gt; AN &lt;y&gt;       BTW modulo
+BIGGR OF &lt;x&gt; AN &lt;y&gt;     BTW max
+SMALLR OF &lt;x&gt; AN &lt;y&gt;    BTW min
+</code></pre><p><code>&lt;x&gt;</code> and <code>&lt;y&gt;</code> may each be expressions in the above, so mathematical operators can be nested and grouped indefinitely.</p>
+<p>Math is performed as integer math in the presence of two NUMBRs, but if either of the expressions are NUMBARs, then floating point math takes over.</p>
+<p>If one or both arguments are a YARN, they get interpreted as NUMBARs if the YARN has a decimal point, and NUMBRs otherwise, then execution proceeds as above.</p>
+<p>If one or another of the arguments cannot be safely cast to a numerical type, then it fails with an error.</p>
+<h3 id="boolean">
+  Boolean
+  <a class="anchor" href="#boolean">#</a>
+</h3>
+<p>Boolean operators working on TROOFs are as follows:</p>
+<pre><code>BOTH OF &lt;x&gt; [AN] &lt;y&gt;          BTW and: WIN iff x=WIN, y=WIN
+EITHER OF &lt;x&gt; [AN] &lt;y&gt;        BTW or: FAIL iff x=FAIL, y=FAIL
+WON OF &lt;x&gt; [AN] &lt;y&gt;           BTW xor: FAIL if x=y
+NOT &lt;x&gt;                       BTW unary negation: WIN if x=FAIL
+ALL OF &lt;x&gt; [AN] &lt;y&gt; ... MKAY  BTW infinite arity AND
+ANY OF &lt;x&gt; [AN] &lt;y&gt; ... MKAY  BTW infinite arity OR
+</code></pre><p><code>&lt;x&gt;</code> and <code>&lt;y&gt;</code> in the expression syntaxes above are automatically cast as TROOF values if they are not already so.</p>
+<h3 id="comparison">
+  Comparison
+  <a class="anchor" href="#comparison">#</a>
+</h3>
+<p>Comparison is (currently) done with two binary equality operators:</p>
+<pre><code>BOTH SAEM &lt;x&gt; [AN] &lt;y&gt;   BTW WIN iff x == y
+DIFFRINT &lt;x&gt; [AN] &lt;y&gt;    BTW WIN iff x != y
+</code></pre><p>Comparisons are performed as integer math in the presence of two NUMBRs, but if either of the expressions are NUMBARs, then floating point math takes over. Otherwise, there is no automatic casting in the equality, so <code>BOTH SAEM &quot;3&quot; AN 3</code> is FAIL.</p>
+<p>There are (currently) no special numerical comparison operators. Greater-than and similar comparisons are done idiomatically using the minimum and maximum operators.</p>
+<pre><code>BOTH SAEM &lt;x&gt; AN BIGGR OF &lt;x&gt; AN &lt;y&gt;   BTW x &gt;= y
+BOTH SAEM &lt;x&gt; AN SMALLR OF &lt;x&gt; AN &lt;y&gt;  BTW x &lt;= y
+DIFFRINT &lt;x&gt; AN SMALLR OF &lt;x&gt; AN &lt;y&gt;   BTW x &gt; y
+DIFFRINT &lt;x&gt; AN BIGGR OF &lt;x&gt; AN &lt;y&gt;    BTW x &lt; y
+</code></pre><p>If <code>&lt;x&gt;</code> in the above formulations is too verbose or difficult to compute, don&rsquo;t forget the automatically created IT temporary variable. A further idiom could then be:</p>
+<pre><code>&lt;expression&gt;, DIFFRINT IT AN SMALLR OF IT AN &lt;y&gt;
+</code></pre><p><em>Suggestions are being accepted for coherently and convincingly english-like prefix operator names for greater-than and similar operators.</em></p>
+<h3 id="concatenation">
+  Concatenation
+  <a class="anchor" href="#concatenation">#</a>
+</h3>
+<p>An indefinite number of YARNs may be explicitly concatenated with the <code>SMOOSH...MKAY</code> operator. Arguments may optionally be separated with <code>AN</code>. As the <code>SMOOSH</code> expects strings as its input arguments, it will implicitly cast all input values of other types to YARNs. The line ending may safely implicitly close the <code>SMOOSH</code> operator without needing an <code>MKAY</code>.</p>
+<h3 id="casting">
+  Casting
+  <a class="anchor" href="#casting">#</a>
+</h3>
+<p>Operators that work on specific types implicitly cast parameter values of other types. If the value cannot be safely cast, then it results in an error.</p>
+<p>An expression&rsquo;s value may be explicitly cast with the binary <code>MAEK</code> operator.</p>
+<pre><code>MAEK &lt;expression&gt; [A] &lt;type&gt;
+</code></pre><p>Where <code>&lt;type&gt;</code> is one of TROOF, YARN, NUMBR, NUMBAR, or NOOB. This is only for local casting: only the resultant value is cast, not the underlying variable(s), if any.</p>
+<p>To explicitly re-cast a variable, you may create a normal assignment statement with the <code>MAEK</code> operator, or use a casting assignment statement as follows:</p>
+<pre><code>&lt;variable&gt; IS NOW A &lt;type&gt;         BTW equivalent to
+&lt;variable&gt; R MAEK &lt;variable&gt; [A] &lt;type&gt;</code></pre></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#calling-syntax-and-precedence">Calling Syntax and Precedence</a></li>
+        <li><a href="#math">Math</a></li>
+        <li><a href="#boolean">Boolean</a></li>
+        <li><a href="#comparison">Comparison</a></li>
+        <li><a href="#concatenation">Concatenation</a></li>
+        <li><a href="#casting">Casting</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

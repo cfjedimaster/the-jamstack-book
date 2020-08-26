@@ -1,6 +1,6 @@
 ---
 title: Input/Output
-weight: 6
+weight: 7
 ---
 
 ### Terminal-Based

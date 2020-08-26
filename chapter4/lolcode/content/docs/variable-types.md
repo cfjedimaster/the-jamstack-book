@@ -1,6 +1,6 @@
 ---
 title: Variable Types
-weight: 4
+weight: 5
 ---
 
 *(updated from 1.1)*

@@ -1,6 +1,6 @@
 ---
 title: Operators
-weight: 5
+weight: 6
 ---
 
 ### Calling Syntax and Precedence

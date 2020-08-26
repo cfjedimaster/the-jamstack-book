@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="(updated from 1.1)
+The variable types that LOLCODE currently recognizes are: strings (YARN), integers (NUMBR), floats (NUMBAR), and booleans (TROOF) (Arrays (BUKKIT) are reserved for future expansion.) Typing is handled dynamically. Until a variable is given an initial value, it is untyped (NOOB). Casting operations operate on TYPE types, as well.
+Untyped #  The untyped type (NOOB) cannot be implicitly cast into any type except a TROOF. A cast into TROOF makes the variable FAIL.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Variable Types" />
+<meta property="og:description" content="(updated from 1.1)
+The variable types that LOLCODE currently recognizes are: strings (YARN), integers (NUMBR), floats (NUMBAR), and booleans (TROOF) (Arrays (BUKKIT) are reserved for future expansion.) Typing is handled dynamically. Until a variable is given an initial value, it is untyped (NOOB). Casting operations operate on TYPE types, as well.
+Untyped #  The untyped type (NOOB) cannot be implicitly cast into any type except a TROOF. A cast into TROOF makes the variable FAIL." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/variable-types/" />
+
+<title>Variable Types | LOLCODE Documentation</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/en.search.min.fb9079ec40a1cde7ba12ae4b349f48a0fea6254af5f475135b79e52d6384ef28.js" integrity="sha256-&#43;5B57EChzee6Eq5LNJ9IoP6mJUr19HUTW3nlLWOE7yg="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>LOLCODE Documentation</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/formatting/" class="">Formatting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/comments/" class="">Comments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/file-creation/" class="">File Creation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/variable-types/" class="active">Variable Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/variables/" class="">Variables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/operators/" class="">Operators</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/input-output/" class="">Input/Output</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/statements/" class="">Statements</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/flow-control/" class="">Flow Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Variable Types</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#untyped">Untyped</a></li>
+        <li><a href="#booleans">Booleans</a></li>
+        <li><a href="#numerical-types">Numerical Types</a></li>
+        <li><a href="#strings">Strings</a></li>
+        <li><a href="#arrays">Arrays</a></li>
+        <li><a href="#types">Types</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><p><em>(updated from 1.1)</em></p>
+<p>The variable types that LOLCODE currently recognizes are: strings (YARN), integers (NUMBR), floats (NUMBAR), and booleans (TROOF) (Arrays (BUKKIT) are reserved for future expansion.) Typing is handled dynamically. Until a variable is given an initial value, it is untyped (NOOB). <del>Casting operations operate on TYPE types, as well.</del></p>
+<h3 id="untyped">
+  Untyped
+  <a class="anchor" href="#untyped">#</a>
+</h3>
+<p>The untyped type (NOOB) cannot be implicitly cast into any type except a TROOF. A cast into TROOF makes the variable FAIL. Any operations on a NOOB that assume another type (e.g., math) results in an error.</p>
+<p>Explicit casts of a NOOB (untyped, uninitialized) variable are to empty/zero values for all other types.</p>
+<h3 id="booleans">
+  Booleans
+  <a class="anchor" href="#booleans">#</a>
+</h3>
+<p>The two boolean (TROOF) values are WIN (true) and FAIL (false). The empty string (&quot;&quot;), an empty array, and numerical zero are all cast to FAIL. All other values evaluate to WIN.</p>
+<h3 id="numerical-types">
+  Numerical Types
+  <a class="anchor" href="#numerical-types">#</a>
+</h3>
+<p>A NUMBR is an integer as specified in the host implementation/architecture. Any contiguous sequence of digits outside of a quoted YARN and not containing a decimal point (.) is considered a NUMBR. A NUMBR may have a leading hyphen (-) to signify a negative number.</p>
+<p>A NUMBAR is a float as specified in the host implementation/architecture. It is represented as a contiguous string of digits containing exactly one decimal point. Casting a NUMBAR to a NUMBR truncates the decimal portion of the floating point number. Casting a NUMBAR to a YARN (by printing it, for example), truncates the output to a default of two decimal places. A NUMBAR may have a leading hyphen (-) to signify a negative number.</p>
+<p>Casting of a string to a numerical type parses the string as if it were not in quotes. If there are any non-numerical, non-hyphen, non-period characters, then it results in an error. Casting WIN to a numerical type results in &ldquo;1&rdquo; or &ldquo;1.0&rdquo;; casting FAIL results in a numerical zero.</p>
+<h3 id="strings">
+  Strings
+  <a class="anchor" href="#strings">#</a>
+</h3>
+<p>String literals (YARN) are demarked with double quotation marks (&quot;). Line continuation and soft-command-breaks are ignored inside quoted strings. An unterminated string literal (no closing quote) will cause an error.</p>
+<p>Within a string, all characters represent their literal value except the colon (:), which is the escape character. Characters immediately following the colon also take on a special meaning.</p>
+<ul>
+<li>:) represents a newline (\n)</li>
+<li>:&gt; represents a tab (\t)</li>
+<li>:o represents a bell (beep) (\g)</li>
+<li>:&rdquo; represents a literal double quote (&quot;)</li>
+<li>:: represents a single literal colon (:)</li>
+</ul>
+<p>The colon may also introduce more verbose escapes enclosed within some form of bracket.</p>
+<ul>
+<li>:(<code>&lt;hex&gt;</code>) resolves the hex number into the corresponding Unicode code point.</li>
+<li>:{<code>&lt;var&gt;</code>} interpolates the current value of the enclosed variable, cast as a string.</li>
+<li>:[<code>&lt;char name&gt;</code>] resolves the <code>&lt;char name&gt;</code> in capital letters to the corresponding Unicode <a href="http://www.unicode.org/Public/4.1.0/ucd/NamesList.txt">normative name</a>.</li>
+</ul>
+<h3 id="arrays">
+  Arrays
+  <a class="anchor" href="#arrays">#</a>
+</h3>
+<p><em>Array and dictionary types are currently under-specified. There is general will to unify them, but indexing and definition is still under discussion.</em></p>
+<h3 id="types">
+  Types
+  <a class="anchor" href="#types">#</a>
+</h3>
+<p>The TYPE type only has the values of TROOF, NOOB, NUMBR, NUMBAR, YARN, and TYPE, as bare words. They may be legally cast to TROOF (all true except for NOOB) or YARN.</p>
+<p><em>TYPEs are under current review. Current sentiment is to delay defining them until user-defined types are relevant, but that would mean that type comparisons are left unresolved in the meantime.</em></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#untyped">Untyped</a></li>
+        <li><a href="#booleans">Booleans</a></li>
+        <li><a href="#numerical-types">Numerical Types</a></li>
+        <li><a href="#strings">Strings</a></li>
+        <li><a href="#arrays">Arrays</a></li>
+        <li><a href="#types">Types</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conditionals #  If-Then #  The traditional if/then construct is a very simple construct operating on the implicit IT variable. In the base form, there are four keywords: O RLY?, YA RLY, NO WAI, and OIC.
+O RLY? branches to the block begun with YA RLY if IT can be cast to WIN, and branches to the NO WAI block if IT is FAIL. The code block introduced with YA RLY is implicitly closed when NO WAI is reached.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Flow Control" />
+<meta property="og:description" content="Conditionals #  If-Then #  The traditional if/then construct is a very simple construct operating on the implicit IT variable. In the base form, there are four keywords: O RLY?, YA RLY, NO WAI, and OIC.
+O RLY? branches to the block begun with YA RLY if IT can be cast to WIN, and branches to the NO WAI block if IT is FAIL. The code block introduced with YA RLY is implicitly closed when NO WAI is reached." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/flow-control/" />
+
+<title>Flow Control | LOLCODE Documentation</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.6cd8553a6854f4812343f0f0c8baca31271e686434f381fbe3c7226f66639176.css" integrity="sha256-bNhVOmhU9IEjQ/DwyLrKMSceaGQ084H748cib2ZjkXY=">
+<script defer src="/en.search.min.fb9079ec40a1cde7ba12ae4b349f48a0fea6254af5f475135b79e52d6384ef28.js" integrity="sha256-&#43;5B57EChzee6Eq5LNJ9IoP6mJUr19HUTW3nlLWOE7yg="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><span>LOLCODE Documentation</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docs/formatting/" class="">Formatting</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/comments/" class="">Comments</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/file-creation/" class="">File Creation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/variable-types/" class="">Variable Types</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/variables/" class="">Variables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/operators/" class="">Operators</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/input-output/" class="">Input/Output</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/statements/" class="">Statements</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/flow-control/" class="active">Flow Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docs/functions/" class="">Functions</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Flow Control</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#conditionals">Conditionals</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h3 id="conditionals">
+  Conditionals
+  <a class="anchor" href="#conditionals">#</a>
+</h3>
+<h4 id="if-then">
+  If-Then
+  <a class="anchor" href="#if-then">#</a>
+</h4>
+<p>The traditional if/then construct is a very simple construct operating on the implicit <code>IT</code> variable. In the base form, there are four keywords: <code>O RLY?</code>, <code>YA RLY</code>, <code>NO WAI</code>, and <code>OIC</code>.</p>
+<p><code>O RLY?</code> branches to the block begun with <code>YA RLY</code> if <code>IT</code> can be cast to WIN, and branches to the <code>NO WAI</code> block if <code>IT</code> is FAIL. The code block introduced with <code>YA RLY</code> is implicitly closed when <code>NO WAI</code> is reached. The <code>NO WAI</code> block is closed with <code>OIC</code>. The general form is then as follows:</p>
+<pre><code>&lt;expression&gt;
+O RLY?
+  YA RLY
+    &lt;code block&gt;
+  NO WAI
+    &lt;code block&gt;
+OIC
+</code></pre><p>while an example showing the ability to put multiple statements on a line separated by a comma would be:</p>
+<pre><code>BOTH SAEM ANIMAL AN &quot;CAT&quot;, O RLY?
+  YA RLY, VISIBLE &quot;J00 HAV A CAT&quot;
+  NO WAI, VISIBLE &quot;J00 SUX&quot;
+OIC
+</code></pre><p>The elseif construction adds a little bit of complexity. Optional <code>MEBBE &lt;expression&gt;</code> blocks may appear between the YA RLY and NO WAI blocks. If the <code>&lt;expression&gt;</code> following <code>MEBBE</code> is WIN, then that block is performed; if not, the block is skipped until the following <code>MEBBE</code>, <code>NO WAI</code>, or <code>OIC</code>. The full expression syntax is then as follows:</p>
+<pre><code>&lt;expression&gt;
+O RLY?
+  YA RLY
+    &lt;code block&gt;
+ [MEBBE &lt;expression&gt;
+    &lt;code block&gt;
+ [MEBBE &lt;expression&gt;
+    &lt;code block&gt;
+  ...]]
+ [NO WAI
+    &lt;code block&gt;]
+OIC
+</code></pre><p>An example of this conditional is then:</p>
+<pre><code>BOTH SAEM ANIMAL AN &quot;CAT&quot;
+O RLY?
+  YA RLY, VISIBLE &quot;J00 HAV A CAT&quot;
+  MEBBE BOTH SAEM ANIMAL AN &quot;MAUS&quot;
+    VISIBLE &quot;NOM NOM NOM. I EATED IT.&quot;
+OIC
+</code></pre><h4 id="case">
+  Case
+  <a class="anchor" href="#case">#</a>
+</h4>
+<p><em>(modified from 1.1)</em></p>
+<p>The LOLCODE keyword for switches is <code>WTF?</code>. The <code>WTF?</code> operates on <code>IT</code> as being the expression value for comparison. A comparison block is opened by <code>OMG</code> and must be a literal, not an expression. (A literal, in this case, excludes any YARN containing variable interpolation (<code>:{var}</code>).) Each literal must be unique. The <code>OMG</code> block can be followed by any number of statements and may be terminated by a <code>GTFO</code>, which breaks to the end of the the <code>WTF</code> statement. If an <code>OMG</code> block is not terminated by a <code>GTFO</code>, then the next <code>OMG</code> block is executed as is the next until a <code>GTFO</code> or the end of the <code>WTF</code> block is reached. The optional default case, if none of the literals evaluate as true, is signified by <code>OMGWTF</code>.</p>
+<pre><code>WTF?
+  OMG &lt;value literal&gt;
+    &lt;code block&gt;
+ [OMG &lt;value literal&gt;
+    &lt;code block&gt; ...]
+ [OMGWTF
+    &lt;code block&gt;]
+OIC
+</code></pre><pre><code>COLOR, WTF?
+  OMG &quot;R&quot;
+    VISIBLE &quot;RED FISH&quot;
+    GTFO
+  OMG &quot;Y&quot;
+    VISIBLE &quot;YELLOW FISH&quot;
+  OMG &quot;G&quot;
+  OMG &quot;B&quot;
+    VISIBLE &quot;FISH HAS A FLAVOR&quot;
+    GTFO
+  OMGWTF
+    VISIBLE &quot;FISH IS TRANSPARENT&quot;
+OIC
+</code></pre><p>In this example, the output results of evaluating the variable <code>COLOR</code> would be:</p>
+<p>&ldquo;R&rdquo;:</p>
+<pre><code>RED FISH
+</code></pre><p>&ldquo;Y&rdquo;:</p>
+<pre><code>YELLOW FISH
+FISH HAS A FLAVOR
+</code></pre><p>&ldquo;G&rdquo;:</p>
+<pre><code>FISH HAS A FLAVOR
+</code></pre><p>&ldquo;B&rdquo;:</p>
+<pre><code>FISH HAS A FLAVOR
+</code></pre><p>none of the above:</p>
+<pre><code>FISH IS TRANSPARENT
+</code></pre><h4 id="loops">
+  Loops
+  <a class="anchor" href="#loops">#</a>
+</h4>
+<p><em>Loops are currently defined more or less as they were in the original examples. Further looping constructs will be added to the language soon.</em></p>
+<p>Simple loops are demarcated with <code>IM IN YR &lt;label&gt;</code> and <code>IM OUTTA YR &lt;label&gt;</code>. Loops defined this way are infinite loops that must be explicitly exited with a GTFO break. Currently, the <code>&lt;label&gt;</code> is required, but is unused, except for marking the start and end of the loop.</p>
+<p><em>Immature spec – <strong>subject to change</strong>:</em></p>
+<p>Iteration loops have the form:</p>
+<pre><code>IM IN YR &lt;label&gt; &lt;operation&gt; YR &lt;variable&gt; [TIL|WILE &lt;expression&gt;]
+  &lt;code block&gt;
+IM OUTTA YR &lt;label&gt;
+</code></pre><p>Where <!-- raw HTML omitted --> may be UPPIN (increment by one), NERFIN (decrement by one), or any unary function. That operation/function is applied to the <!-- raw HTML omitted -->, which is temporary, and local to the loop. The TIL <!-- raw HTML omitted --> evaluates the expression as a TROOF: if it evaluates as FAIL, the loop continues once more, if not, then loop execution stops, and continues after the matching IM OUTTA YR <!-- raw HTML omitted -->. The WILE <!-- raw HTML omitted --> is the converse: if the expression is WIN, execution continues, otherwise the loop exits.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#conditionals">Conditionals</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
