@@ -1,0 +1,63 @@
+publish_mode: editorial_workflow
+media_folder: static/images
+public_folder: /images
+backend:
+  name: github
+  branch: master
+  repo: cfjedimaster/the-jamstack-book/tree/master/chapter4/lolcode
+  open_authoring: true
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: "home"    
+        label: "Home Page"
+        file: "content/_index.md"
+        fields:
+            - widget: string
+              name: title
+              label: Title
+              required: true
+              hint: >-
+                The title of the page
+            - widget: markdown
+              name: body
+              label: Content
+              required: true
+              hint: Page content
+  - name: docs
+    label: Docs
+    folder: /content/docs
+    create: true
+    extension: md
+    slug: '{{slug}}'
+    fields:
+        - widget: string
+          name: title
+          label: Title
+          required: true
+          hint: >-
+            The title of the page that will appear in the left hand navigation
+        - widget: number
+          name: weight
+          label: Weight
+          required: false
+          hint: >-
+            The navigation order of the page.
+        - widget: boolean
+          name: bookToc
+          label: Table of Contents
+          required: false
+          hint: >-
+            If false, the right hand table of contents will not show. Defaults to true if empty.
+        - widget: boolean
+          name: bookHidden
+          label: Hidden?
+          required: false
+          hint: >-
+            If true, the page will not list on the left hand navigation
+        - widget: markdown
+          name: body
+          label: Content
+          required: true
+          hint: Page content
