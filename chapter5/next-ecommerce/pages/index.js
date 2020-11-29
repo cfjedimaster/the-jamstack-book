@@ -1,11 +1,6 @@
 import Nav from '../components/nav';
-import agility from '@agility/content-fetch';
+import commerce from '../lib/commerce';
 import ProductList from '../components/products/ProductList';
-
-const api = agility.getApi({
-  guid: process.env.AGILITY_GUID,
-  apiKey: process.env.AGILITY_API_FETCH_KEY,
-});
 
 export default function IndexPage({ products }) {
   return (
@@ -25,14 +20,11 @@ export default function IndexPage({ products }) {
 }
 
 export async function getStaticProps() {
-  const contentList = await api.getContentList({
-    referenceName: 'Products',
-    languageCode: 'en-us',
-  });
+  const products = await commerce.products.list();
 
   return {
     props: {
-      products: contentList.items,
+      products: products.data,
     },
   };
 }

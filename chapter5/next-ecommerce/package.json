@@ -7,7 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@agility/content-fetch": "^1.0.0",
+    "@chec/commerce.js": "^2.3.0-beta2",
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
