@@ -19,9 +19,9 @@ export default function Nav() {
         <ul className="flex items-center justify-between space-x-4">
           {links.map(({ href, label }) => (
             <li key={`${href}${label}`}>
-              <a href={href} className="no-underline btn-blue">
-                {label}
-              </a>
+              <Link href={href}>
+                <a className="no-underline btn-blue">{label}</a>
+              </Link>
             </li>
           ))}
         </ul>

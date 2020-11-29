@@ -11,18 +11,11 @@ class ShoppingCart extends React.Component {
       total: {},
       checkoutToken: '',
       checkoutURL: '',
-      discountCode: '',
-      discountMessage: '',
     };
   }
   loadCart = async () => {
     let cart = await commerce.cart.retrieve();
     return cart;
-  };
-  generateToken = async (id) => {
-    let token = await commerce.checkout.generateToken(id, { type: 'cart' });
-    console.log(token);
-    return token;
   };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value.trim() });
@@ -31,28 +24,6 @@ class ShoppingCart extends React.Component {
     let res = await commerce.cart.update(id, { quantity: quantity });
     let items = res.cart.line_items;
     this.setState({ items: items, subtotal: res.cart.subtotal });
-  };
-  handleDiscountCode = async () => {
-    if (this.state.discountCode !== '') {
-      // generate a token so that we can validate the discount code
-      let token = await this.generateToken(this.state.cartID);
-      this.setState({ checkoutToken: token.id });
-      let res = await commerce.checkout.checkDiscount(
-        this.state.checkoutToken,
-        {
-          code: this.state.discountCode,
-        }
-      );
-      if (!res.valid) {
-        this.setState({ discountMessage: 'The code is not valid.' });
-      } else {
-        let foo = await commerce.cart.update(this.state.items[0].id, {
-          discount_code: this.state.discountCode,
-        });
-        console.log(foo);
-        this.setState({ total: res.live.total_due, discountMessage: '' });
-      }
-    }
   };
   handleCheckout = () => {
     // for now we're just opening a new window to the hosted checkout
@@ -67,7 +38,6 @@ class ShoppingCart extends React.Component {
       total: cart.subtotal,
       checkoutURL: cart.hosted_checkout_url,
     });
-    console.log(cart);
   }
   render() {
     return (
@@ -186,40 +156,6 @@ class ShoppingCart extends React.Component {
                     this.state.subtotal.formatted_with_symbol}
                 </span>
               </div>
-              <div>
-                <label className="font-medium inline-block mb-3 text-sm uppercase">
-                  Shipping
-                </label>
-                <select className="block p-2 text-gray-600 w-full text-sm">
-                  <option>Standard shipping - $10.00</option>
-                </select>
-              </div>
-              <div className="py-10">
-                <label
-                  htmlFor="promo"
-                  className="font-semibold inline-block mb-3 text-sm uppercase"
-                >
-                  Promo Code
-                </label>
-                <input
-                  name="discountCode"
-                  type="text"
-                  id="promo"
-                  placeholder="Enter your code"
-                  className="p-2 text-sm w-full"
-                  value={this.state.discountCode}
-                  onChange={this.handleChange}
-                />
-                <p className="text-xs text-red-800 m-0.5">
-                  {this.state.discountMessage}
-                </p>
-              </div>
-              <button
-                onClick={this.handleDiscountCode}
-                className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase"
-              >
-                Apply
-              </button>
               <div className="border-t mt-8">
                 <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                   <span>Total cost</span>

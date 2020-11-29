@@ -16,6 +16,15 @@ body {
   @apply px-4 py-2 font-bold text-white bg-blue-500 rounded;
 }
 
+h1 {
+  @apply text-3xl;
+  @apply mb-1;
+}
+.content ul {
+  @apply list-disc;
+  @apply list-inside;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

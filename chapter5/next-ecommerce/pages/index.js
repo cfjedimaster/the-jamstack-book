@@ -6,11 +6,11 @@ export default function IndexPage({ products }) {
   return (
     <div>
       <Nav />
-      <section class="text-gray-700 body-font">
-        <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-wrap -m-4">
+      <section className="text-gray-700 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4">
             {products.map((product, index) => (
-              <ProductList product={product} />
+              <ProductList product={product} key={index} />
             ))}
           </div>
         </div>
