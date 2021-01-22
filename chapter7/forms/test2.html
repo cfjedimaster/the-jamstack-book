@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A Regular Page</title>
+<style>
+body {
+	background-color: bisque;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+footer {
+	margin-top: 10px;
+	font-size: 10px;
+}
+</style>
+</head>
+
+<body>
+
+	<h1>My Site's Contact Form</h1>
+
+	<form method="post" action = 
+	"https://api.formcake.com/api/form/451d4b55-3e2a-4eee-b7c4-1b54041a5365/submission">
+
+	<p>
+	<label for="name">What is your name?</label>
+	<input name="name" id="name" required>
+	</p>
+
+	<p>
+	<label for="email">What is your email address?</label>
+	<input name="email" id="email" type="email" required>
+	</p>
+
+	<p>
+	Do you like our site?<br/>
+	<input name="like" id="likeyes" value="yes" type="radio">
+	<label for="likeyes">Yes</label><br/>
+	<input name="like" id="likeno" value="no" type="radio">
+	<label for="likeno">No</label><br/>
+	</p>
+
+	<p>
+	<label for="comments">Your comments</label>
+	<textarea name="comments" id="comments" required></textarea>
+	</p>
+
+	<p>
+	<input type="submit">
+	</p>
+
+	</form>
+
+
+	<footer>
+	<p>Copyright Whenever</p>
+	</footer>
+
+</body>
+</html>
