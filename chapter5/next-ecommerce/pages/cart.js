@@ -13,24 +13,25 @@ class ShoppingCart extends React.Component {
       checkoutURL: '',
     };
   }
-  loadCart = async () => {
-    let cart = await commerce.cart.retrieve();
-    return cart;
-  };
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value.trim() });
+  handleQuantityChange = (id, e) => {
+    const quant = parseInt(e.target.value.trim());
+    if (!isNaN(quant)) this.handleUpdateQuantity(id, e.target.value.trim());
   };
   handleUpdateQuantity = async (id, quantity) => {
     let res = await commerce.cart.update(id, { quantity: quantity });
     let items = res.cart.line_items;
-    this.setState({ items: items, subtotal: res.cart.subtotal });
+    this.setState({
+      items: items,
+      subtotal: res.cart.subtotal,
+      total: res.cart.subtotal,
+    });
   };
   handleCheckout = () => {
     // for now we're just opening a new window to the hosted checkout
     window.open(this.state.checkoutURL);
   };
   async componentDidMount() {
-    let cart = await this.loadCart();
+    let cart = await commerce.cart.retrieve();
     this.setState({
       cartID: cart.id,
       items: cart.line_items,
@@ -105,7 +106,8 @@ class ShoppingCart extends React.Component {
                     <input
                       className="mx-2 border text-center w-8"
                       type="text"
-                      defaultValue={item.quantity}
+                      value={item.quantity}
+                      onChange={(e) => this.handleQuantityChange(item.id, e)}
                     />
                     <button
                       onClick={() =>

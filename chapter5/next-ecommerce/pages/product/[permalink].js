@@ -10,7 +10,7 @@ class ProductDetail extends React.Component {
   }
   handleAddToCart = async (e) => {
     let cart = await commerce.cart.add(this.props.product.id, 1);
-    console.log(cart);
+
     let cartText = 'Added! (' + cart.quantity + ')';
     this.setState({ cartText: cartText });
   };
@@ -70,7 +70,7 @@ export default ProductDetail;
 export async function getStaticPaths() {
   const products = await commerce.products.list();
 
-  // create paths with `slug` param
+  // create paths with `permalink` param
   const paths = products.data.map((product) => `/product/${product.permalink}`);
   return {
     paths,
@@ -79,8 +79,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ ...ctx }) {
-  const { slug } = ctx.params;
-  const product = await commerce.products.retrieve(slug, {
+  const { permalink } = ctx.params;
+  const product = await commerce.products.retrieve(permalink, {
     type: 'permalink ',
   });
 
