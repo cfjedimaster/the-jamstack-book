@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<title></title>
+<link rel="stylesheet" href="/css/app.css" />
+</head>
+
+<body>
+
+
+<h1>Search</h1>
+
+<input type="search" id="search"> 
+<button id="searchBtn">Search</button>
+
+<div id="results">
+</div>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', init, false);
+let searchField, searchButton, resultsDiv;
+let docs, idx;
+
+async function init() {
+	searchField = document.querySelector('#search');
+	searchButton = document.querySelector('#searchBtn');
+	resultsDiv = document.querySelector('#results');
+
+	let result = await fetch('/index.json');
+	docs = await result.json();
+	
+	// assign an ID so it's easier to look up later, 
+	// it will be the same as index
+	idx = lunr(function () {
+		this.ref('id');
+		this.field('title');
+		this.field('content');
+
+		docs.forEach(function (doc, idx) {
+			doc.id = idx;
+			this.add(doc); 
+		}, this);
+	});
+
+	searchButton.addEventListener('click', search, false);
+}
+
+function search() {
+	let term = searchField.value;
+	if(!term) return;
+	console.log('search for '+term);
+
+	let results = idx.search(term);
+
+	console.log(results);
+
+	// we need to add title, url from ref
+	results.forEach(r => {
+		r.title = docs[r.ref].title;
+		r.url = docs[r.ref].url;
+	});
+
+	let result = '<h2>Results</h2><ul>';
+	results.forEach(r => {
+		result += `
+<li><a href="${r.url}">${r.title}</a></li>
+		`;
+	});
+
+	result += '</ul>';
+
+	resultsDiv.innerHTML = result;
+}
+</script>
+
+
+
+
+<p>
+<a href="/">Home</a> -<a href="/search">Search</a>
+</p>
+
+<footer>
+<p>All content sourced from <a href="https://gijoe.fandom.com/wiki/Joepedia_-_The_G.I._Joe_Wiki">Joepedia</a>.</p>
+</footer>
+
+</body>
+</html>
