@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<input type="text" id="name" placeholder="Enter your name...">
+<button id="testBtn">Test Function</button>
+
+<div id="result"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', init, false);
+let textField, resultDiv;
+
+function init() {
+	textField = document.querySelector('#name');
+	resultDiv = document.querySelector('#result');
+	document.querySelector('#testBtn').addEventListener('click', 
+		testApi, false);
+}
+
+function testApi() {
+	let name = textField.value.trim();
+	if(!name) return;
+	fetch(`/api/greeter/${name}`)
+	.then(res => res.json())
+	.then(res => {
+		resultDiv.innerHTML = `Function returned: ${res.message}`;
+	});
+}
+</script>
+</body>
+</html>
