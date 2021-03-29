@@ -1,0 +1,26 @@
+---
+layout: main
+pagination:
+    data: products
+    size: 1
+    alias: product
+permalink:	"products/{{ product.name | slug }}/index.html"
+---
+
+<div class="row my-4">
+	<div class="col">
+
+     <div class="card mt-4">
+          <img class="card-img-top img-fluid" 
+          src="http://placehold.it/900x400" alt="">
+          <div class="card-body">
+            <h3 class="card-title">{{ product.name }}</h3>
+            <h4>${{product.price}}</h4>
+            <p class="card-text">
+    			  {{ product.description }}
+		      	</p>
+          </div>
+        </div>
+
+	</div>
+</div>
