@@ -17,8 +17,7 @@ class ProductDetail extends React.Component {
   render() {
     const props = this.props;
     const fullImage = props.product.assets.filter((item, index) => {
-      if (item.image_dimensions.width === 400) return true;
-      return false;
+      return (item.image_dimensions.width === 400);
     })[0];
     return (
       <div>
