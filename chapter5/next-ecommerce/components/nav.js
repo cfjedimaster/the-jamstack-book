@@ -20,7 +20,7 @@ export default function Nav() {
           {links.map(({ href, label }) => (
             <li key={`${href}${label}`}>
               <Link href={href}>
-                <a className="no-underline btn-blue">{label}</a>
+                <a className=" no-underline px-4 py-2 font-bold text-white bg-blue-500 rounded">{label}</a>
               </Link>
             </li>
           ))}
