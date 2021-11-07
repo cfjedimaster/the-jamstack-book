@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.3.0-beta2",
-    "gray-matter": "^4.0.2",
-    "next": "latest",
-    "raw-loader": "^4.0.2",
+    "gray-matter": "4.0.3",
+    "next": "12.0.3",
+    "raw-loader": "4.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-markdown": "^5.0.3"
+    "react-markdown": "7.1.0"
   },
   "devDependencies": {
     "autoprefixer": "10.0.2",
