@@ -33,7 +33,7 @@ export default function ShoppingCart() {
       setCheckoutURL(cart.hosted_checkout_url);
     }
     fetchCart();
-  });
+  }, []);
   return (
     <div>
       <Nav />
