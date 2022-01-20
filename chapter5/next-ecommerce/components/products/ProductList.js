@@ -2,8 +2,7 @@ import Link from 'next/link';
 
 export default function ProductList({ ...props }) {
   const thumbnail = props.product.assets.filter((item, index) => {
-    if (item.image_dimensions.width === 350) return true;
-    return false;
+    return (item.image_dimensions.width === 350);
   })[0];
 
   return (
