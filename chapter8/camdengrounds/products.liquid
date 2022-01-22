@@ -8,7 +8,7 @@ permalink:	"products/{{ product.name | slug }}/index.html"
 ---
 
 <div class="row my-4">
-	<div class="col">
+  <div class="col">
 
      <div class="card mt-4">
           <img class="card-img-top img-fluid" 
@@ -17,13 +17,13 @@ permalink:	"products/{{ product.name | slug }}/index.html"
             <h3 class="card-title">{{ product.name }}</h3>
             <h4>${{product.price}}</h4>
             <p class="card-text">
-    			  {{ product.description }}
-		      	</p>
+            {{ product.description }}
+            </p>
             <p id="availability"></p>
           </div>
         </div>
 
-	</div>
+  </div>
 </div>
 
 <script>
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', init, false);
 let availabilityP;
 
 async function init() {
-	availabilityP = document.querySelector('#availability');
+  availabilityP = document.querySelector('#availability');
   let api = '/.netlify/functions/product-availability?';
   //add specific product
   api += 'product={{product.name}}';
