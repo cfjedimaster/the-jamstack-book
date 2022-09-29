@@ -20,7 +20,7 @@ export default function IndexPage({ products }) {
 }
 
 export async function getStaticProps() {
-  const products = await commerce.products.list();
+  const products = await commerce.products.list({include: 'assets',});
 
   return {
     props: {
